@@ -1,0 +1,54 @@
+#include<stdio.h>
+int main()
+{
+    int n,cntr=0,cntb=0,cntr2=0,cntb2=0,cntr1=0,cntb1=0,i,j,min=500001;
+    char r[500001],b[500001];
+    scanf("%d",&n);
+    scanf("%s",&r);
+    for(i=0;i<n;i++)
+    {
+        if(r[i]=='R')
+            cntr1++;
+        if(r[i]=='B')
+            cntb1++;
+    }
+    for(i=0;i<n;i++)
+    {
+        if(r[i]=='R')
+            cntr++;
+        else
+            break;
+    }
+    if(cntr1-cntr<min)
+        min=cntr1-cntr;
+    cntr=0;
+    for(i=n-1;i>=0;i--)
+    {
+        if(r[i]=='R')
+            cntr++;
+        else
+            break;
+    }
+    if(cntr1-cntr<min)
+        min=cntr1-cntr;
+    for(i=0;i<n;i++)
+    {
+        if(r[i]=='B')
+            cntb++;
+        else
+            break;
+    }
+    if(cntb1-cntb<min)
+        min=cntb1-cntb;
+    cntb=0;
+    for(i=n-1;i>=0;i--)
+    {
+        if(r[i]=='B')
+            cntb++;
+        else
+            break;
+    }
+    if(cntb1-cntb<min)
+        min=cntb1-cntb;
+    printf("%d",min);
+}
